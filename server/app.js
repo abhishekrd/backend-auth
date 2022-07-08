@@ -9,7 +9,7 @@ const authorize = require("./auth");
 
 dotenv.config();
 
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 const DB = process.env.DB_URL;
 
 app.use(express.json())
@@ -97,7 +97,7 @@ app.get("/auth-endpoint",authorize,(req,res) => {
     res.json({message:"You are authorized to access this!"})
 })
 
-app.listen(PORT,() => {
-    console.log(`server started running on port ${PORT}`)
+app.listen(port,() => {
+    console.log(`server started running on port ${port}`)
 })
 
